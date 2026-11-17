@@ -13,8 +13,8 @@ have analysistic and throttling also
 5. scale given in question for reads = 1 billion  = (10^3*10^6)/(24*60*60) RPS = approx 11.6 K  reads per second
 6. give HTTP 401 for revoked URLS
 7. Idempotency ( per user, per url ) --> same outut code for same input code
-9. Async pipeline to emit metrics/analystics to anotehr service 
-10. Admin Service to revoke URL by flipping revoked_at flag that the cache treats as a neg entry with 60 s TTL.
+8. Async pipeline to emit metrics/analystics to anotehr service 
+9. Admin Service to revoke URL by flipping revoked_at flag that the cache treats as a neg entry with 60 s TTL.
 
 **APIS**:
 1. POST/shorten -->accepts URL and returns a short code
