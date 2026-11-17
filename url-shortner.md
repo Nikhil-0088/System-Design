@@ -6,7 +6,7 @@ have analysistic and throttling also
 
 
 **Requirments**:
-1. Loung URL --> 64 bits unique Hash (account for collision )---> base 62 encoding to genearte a unique 7 charatecerts URL.
+1. Loung URL --> 64 bits unique Hash---> base 62 encoding to genearte a unique 7 charatecerts URL.
 2. Store the 7 characters along siode the long URL ( Writes in the system)
 3. Redirect request from short URL to the long URL , HTTP code 301/302 (Reads in the system) --> will need a cache for reads, 
 4. Scale given in question for writes = 100 million new links per day = (10^2* 10^6)/(24*60) write per minute = approx 70 K writed per minute = 1.2K writes per secod
