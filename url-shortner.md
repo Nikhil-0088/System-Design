@@ -80,9 +80,12 @@ BL code for POSt and GET APIs
 1. We will choose unique monotonic ID + base 63 encdoing instead of Hashing:- the 64 bits uniquq ID will have 41 bits timestamp + 10 bits machine + 12 bist seq
 2. Each response for cliscking the short URL in the browser will be 302 redirect with Cache-Control: private, max-age=0 such that the browser does not store in the browser cache and the GET call always reached the server for analytics.
 3. Cache population must be Write through during create and lazy on read miss. TTL set so that less frequently used ones are evicted from the cache
+4. LB algoruthm: Round-robin with least-connections fallback. Healthy pool only; ejection after 3 consecutive 5xx within 10s. TLS termination ( default for L7 layer LB) ; plaintext HTTP to the API tier  --> can make LB choke point --> conside NLB if very high  traffic
 
 
 ![alt text](image-1.png)
+
+![alt text](image.png)
 
 **More read about**
 1. RATE limiting techqiunes
