@@ -1,17 +1,19 @@
 **Question**
-Design a distributed rate limiter that protects APIs at 1M+ RPS with per-user / per-IP / per-API quotas.and quotas are defined in the service config.
+Design a distributed rate limiter that protects APIs at 1M+ RPS with per-user / per-IP / per-API quotas.and quotas are defined in the service config.e
 
 **Requirments**
 1. for a scle of 1M RPS we cannot have one node for a Rate limiter, we need horizontal scaling and then these horizintal nodes must agree on the same value while rate limiting
 2. We need to enforce the limiting at per API KEY, per IP and per endpoint
 3. if the limit reached we will throllte with HTTP 429 status code and headers like X-Ratelimit-Retry-After 
 4. for rate limiting we will use a token bucket algorithm
-5. rate limiter will be like a middel-ware
+5. rate limiter will be like a middel-ware on application seever after the AuthN layer and before the service proxy
+6. we will have a cron job that will read the config for quotas and thresholds and update those in a cache so the rate limiter can read the rules fast.
+7. for a incoming request the rate limiter will read the redis ( has token bucket implemented), reads the bucket, refills token if time has elpased, decrement if token is available, and writes back the new state.
+8. Since we will have multiple servers/gateways each will hit the same redis store, so atomicity is important which will be taken care by searilization of concurrent requests on single threaded redis event loop.
 
-**HLD**
-1, 
 
 
+![alt text](image.png)
 
 *Design Choices**
 1. Rate Limiting Algorithm:
