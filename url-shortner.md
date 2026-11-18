@@ -83,10 +83,7 @@ BL code for POSt and GET APIs
 4. LB algoruthm: Round-robin with least-connections fallback. Healthy pool only; ejection after 3 consecutive 5xx within 10s. TLS termination ( default for L7 layer LB) ; plaintext HTTP to the API tier  --> can make LB choke point --> conside NLB if very high  traffic
 
 
-![alt text](image-1.png)
-
-![alt text](image.png)
-
+![alt text](./images/url-shortner.png)
 **More read about**
 1. RATE limiting techqiunes
 2. Async pipelines to push analytics data 

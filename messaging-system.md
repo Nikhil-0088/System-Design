@@ -12,7 +12,7 @@ numbers: 50M DAU, groups with 100 members, and histroy retained forever
 7. For HTTP request to Statless Servers we can use a normal round robin or Max Connextions kind of a Load balancer.
 8. for a group message, chat server will publish one copy of the message per recipient to a Async queue, and eachg recipients chat server will publish it dorectly to online client.
 9. for offlien clients we will use Apple push Notification Service ( APNs) ro FCM (Firebase Cloud Messaging) these thrid party service for push notifications when the device comes online.
-![alt text](image-2.png)
+![alt text](./images/chat-application.png)
 
 **HLD FLOW**
 1. User Login's  usng Https and application server, then the application server identifies the best chat server for it using the zookeper, client opens Websocker connection to it.

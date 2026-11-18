@@ -13,7 +13,7 @@ Design a distributed rate limiter that protects APIs at 1M+ RPS with per-user / 
 
 
 
-![alt text](image.png)
+![alt text](./images/rate-limiter.png)
 
 *Design Choices**
 1. Rate Limiting Algorithm:
